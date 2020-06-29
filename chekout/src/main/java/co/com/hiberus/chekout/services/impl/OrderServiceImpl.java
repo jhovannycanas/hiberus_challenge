@@ -27,7 +27,16 @@ public class OrderServiceImpl implements OrderService {
                 .map(productRequest -> OrderItem.builder().product(productRequest.getId())
                 .quantity(productRequest.getQuantity()).cost(productRequest.getCost()).build()).collect(Collectors.toList());
 
-        return orderRepository.save(Order.builder().dateOrder(new Date()).orderItems(orderItems).clientId(orderRequest.getClientId())
-                .status(Order.status.pending.name()).build());
+        Order order = Order.builder().dateOrder(orderRequest.getDate()).clientId(orderRequest.getClientId())
+                .status(Order.status.pending.name()).createAt(new Date()).build();
+
+        if (!orderItems.isEmpty()) {
+            for (OrderItem orderItem:
+            orderItems) {
+                order.addItem(orderItem);
+            }
+        }
+
+        return orderRepository.save(order);
     }
 }

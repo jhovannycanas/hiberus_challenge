@@ -20,7 +20,7 @@ public class BillResource {
         this.billService = billService;
     }
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "{order}",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public Bill createBill(@PathVariable("order") Integer orderId) {
         return billService.saveService(orderId);

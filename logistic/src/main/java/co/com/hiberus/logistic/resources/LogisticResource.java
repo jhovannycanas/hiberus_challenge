@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-@RequestMapping(value = "/rest/api/v1.0/logitics")
+@RequestMapping(value = "/rest/api/v1.0/logistics")
 public class LogisticResource {
 
     private final LogisticService logisticService;
@@ -18,9 +18,9 @@ public class LogisticResource {
         this.logisticService = logisticService;
     }
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "{orderid}/{direction}",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public Logistic saveLogistic(@PathVariable("order")Integer orderId, @PathVariable("direction")String direction) {
+    public Logistic saveLogistic(@PathVariable("orderid")Integer orderId, @PathVariable("direction")String direction) {
         return logisticService.saveSentOrder(orderId, direction);
     }
 }

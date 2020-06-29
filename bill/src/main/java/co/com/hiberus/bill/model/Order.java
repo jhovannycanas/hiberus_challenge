@@ -1,7 +1,7 @@
 package co.com.hiberus.bill.model;
 
-import lombok.Builder;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.List;
 @Table(schema = "hiberus",name = "tbl_order")
 @Entity
 @Data
-@Builder
+@NoArgsConstructor
 public class Order {
     public enum status {
         pending, sent, cancel
@@ -36,6 +36,7 @@ public class Order {
     @Column(name = "create_at")
     private Date createAt;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
 

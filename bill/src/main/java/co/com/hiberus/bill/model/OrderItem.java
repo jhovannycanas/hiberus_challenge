@@ -15,16 +15,23 @@ public class OrderItem {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_caracterizacion", referencedColumnName = "id")
+    @JoinColumn(name = "id_order", referencedColumnName = "id")
     private Order order;
 
-    @ManyToOne
-    @JoinColumn(name = "id_pregunta", referencedColumnName = "id")
-    private Product product;
+    @Column(name = "product_id")
+    private Integer product;
 
     @Column(name = "quantity")
     private int quantity;
 
+    @Column(name = "cost")
+    private double cost;
+
     @Transient
     private double subTotal;
+
+    public double calculateSubTotal() {
+        subTotal = 0.0;
+        return subTotal = cost * quantity;
+    }
 }

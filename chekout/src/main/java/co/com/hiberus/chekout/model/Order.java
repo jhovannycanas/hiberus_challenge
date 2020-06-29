@@ -36,7 +36,7 @@ public class Order {
     @Column(name = "create_at")
     private Date createAt;
 
-    @ManyToMany(mappedBy = "order")
+    @ManyToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
     public void addItem(OrderItem orderItem) {
@@ -44,5 +44,6 @@ public class Order {
             orderItems = new ArrayList<>();
         }
         orderItem.setOrder(this);
+        orderItems.add(orderItem);
     }
 }

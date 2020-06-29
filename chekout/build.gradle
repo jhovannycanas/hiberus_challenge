@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.1.RELEASE'
+	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 }
@@ -20,20 +20,37 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-undertow', version: '2.2.3.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.2.3.RELEASE'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'org.apache.camel', name: 'camel-spring-boot-starter', version: '2.25.1'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
-	compile group: 'org.apache.camel', name: 'camel-spring-boot-starter', version: '2.25.1'
+	//testImplementation 'org.springframework.security:spring-security-test'
 	compile group: 'org.apache.camel', name: 'camel-core', version: "2.25.1"
 	compile group: 'org.apache.camel', name: 'camel-http4-starter', version: "2.25.1"
 	compile group: 'org.apache.camel', name: 'camel-cdi', version: "2.25.1"
 	compile group: 'org.apache.camel', name: 'camel-swagger-java', version: "2.25.1"
 	compile group: 'org.apache.camel', name: 'camel-jackson', version: "2.25.1"
 	compile group: 'org.apache.camel', name: 'camel-servlet', version: '2.25.1'
+// https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+	//compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.3.1.RELEASE'
+
+	compile group: 'org.apache.camel', name: 'camel-swagger-java', version: '2.25.1'
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.2.6.RELEASE'
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-undertow
+	//compile group: 'org.apache.camel', name: 'camel-undertow', version: '2.25.1'
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-http
+	testCompile group: 'org.apache.camel', name: 'camel-http', version: '2.25.1'
+
+
 }
 
 test {

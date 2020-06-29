@@ -25,8 +25,10 @@ public class BillServiceImpl implements BillService {
     public Bill saveService(Integer orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(()-> new OrderNotFound("Order not found", 404));
 
-        double totalOrder = order.getOrderItems().stream().map(orderItem -> orderItem.getSubTotal())
-                .mapToDouble(value -> value).sum();
+
+        double totalOrder = order.getOrderItems().stream().map(orderItem -> {
+            return orderItem.calculateSubTotal();
+        }).mapToDouble(value -> value).sum();
         return billRepository.save(Bill.builder().order(order).totalBill(totalOrder).createAt(new Date()).build());
     }
 }
