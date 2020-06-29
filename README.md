@@ -64,16 +64,16 @@ once the executable files have been created, you can check how they work
 
 - Checkout component
 
-docker build -f Dockerfile -t jhovannydocker/checkout .
+` docker build -f Dockerfile -t jhovannydocker/checkout `
 
 - Bill component
 
-docker build -f Dockerfile -t jhovannydocker/bill .
+` docker build -f Dockerfile -t jhovannydocker/bill `
 
 
 - logistic component
 
-docker build -f Dockerfile -t jhovannydocker/logistic .
+` docker build -f Dockerfile -t jhovannydocker/logistic `
 
 4. run the containers
 
