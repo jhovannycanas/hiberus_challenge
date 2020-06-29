@@ -1,14 +1,18 @@
 package co.com.hiberus.chekout.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(schema = "hiberus",name = "tbl_order_item")
+@Table(name = "tbl_order_item")
 @Entity
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderItem {
 
     @Id

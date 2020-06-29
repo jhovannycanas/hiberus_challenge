@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Table(schema = "hiberus",name = "tbl_order")
+@Table(name = "tbl_order")
 @Entity
 @Data
 @NoArgsConstructor

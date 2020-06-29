@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Table(schema = "hiberus",name = "tbl_order_item")
+@Table(name = "tbl_order_item")
 @Entity
 @Data
 public class OrderItem {

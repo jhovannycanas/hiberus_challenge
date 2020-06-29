@@ -6,7 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 
-@Table(schema = "hiberus",name = "tbl_logistic")
+@Table(name = "tbl_logistic")
 @Entity
 @Data
 @Builder

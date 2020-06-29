@@ -17,7 +17,7 @@ public class LogisticServiceImpl implements LogisticService {
     }
 
     @Override
-    public Logistic saveSentOrder(Integer orderId, String direction) {
+    public synchronized Logistic saveSentOrder(Integer orderId, String direction) {
 
         return logisticRepository.save(Logistic.builder().orderId(orderId).direction(direction).createAt(new Date()).build());
     }

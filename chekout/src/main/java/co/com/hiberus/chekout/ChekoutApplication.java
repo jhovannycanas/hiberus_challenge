@@ -15,7 +15,7 @@ public class ChekoutApplication {
 
 	@Bean
 	public ServletRegistrationBean servletRegistrationBean() {
-		ServletRegistrationBean register = new ServletRegistrationBean(new CamelHttpTransportServlet(), "/rest/api/v1.0/checkouts/*");
+		ServletRegistrationBean register = new ServletRegistrationBean(new CamelHttpTransportServlet(), "/rest/*");
 		register.setName("CamelServlet");
 		return register;
 	}

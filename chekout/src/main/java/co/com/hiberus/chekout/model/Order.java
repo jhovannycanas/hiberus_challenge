@@ -1,17 +1,21 @@
 package co.com.hiberus.chekout.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Table(schema = "hiberus",name = "tbl_order")
+@Table(name = "tbl_order")
 @Entity
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order {
     public enum status {
         pending, sent, cancel
@@ -22,11 +26,11 @@ public class Order {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "client_id")
+    @Column(name = "client_id", nullable = false)
     private Integer clientId;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "date_order")
+    @Column(name = "date_order", nullable = false)
     private Date dateOrder;
 
     @Column(name = "status")
